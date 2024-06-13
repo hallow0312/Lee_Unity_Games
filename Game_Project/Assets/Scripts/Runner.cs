@@ -20,6 +20,7 @@ public class Runner : MonoBehaviour
        line = RoadLine.MIDDLE;
        transform.position=new Vector3(0,0,0);
        animator= GetComponent<Animator>();
+        
       
     }
     private void Update()
