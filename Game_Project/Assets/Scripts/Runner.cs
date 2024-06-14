@@ -15,6 +15,10 @@ public class Runner : MonoBehaviour
     [SerializeField] float positionX = 3.5f;
     [SerializeField] Animator animator;
 
+    private void OnEnable()
+    {
+        InputManager.Instance.keyAction += OnKeyUpdate;
+    }
     private void Start()
     {
        line = RoadLine.MIDDLE;
@@ -23,54 +27,45 @@ public class Runner : MonoBehaviour
         
       
     }
-    private void Update()
+    void OnKeyUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if(line!=RoadLine.LEFT)
+            if (line != RoadLine.LEFT)
             {
                 line--;
                 animator.Play("Left");
-                
+
             }
         }
-        else if(Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if(line!=RoadLine.RIGHT) 
+            if (line != RoadLine.RIGHT)
             {
                 animator.Play("Right");
-                
+
                 line++;
             }
         }
-                Status(line);
+    }
+    private void Update()
+    {
+        
+       Move();
        
     }
     
-    public void Status(RoadLine line)
+    
+
+    public void Move()
     {
-        switch(line)
-        {
-            case RoadLine.LEFT:
-                Move(-positionX);
-                break;
-     
-            case RoadLine.MIDDLE:
-                Move(0);
-                break;
-
-            case RoadLine.RIGHT:
-                Move(positionX);
-                break;
-
-        }
-    }
-
-    public void Move(float PositionX)
-    {
-        transform.position = new Vector3(PositionX,0,0);
+        transform.position = new Vector3(positionX *(float)line,0,0); 
     
     }
 
+    private void OnDisable()
+    {
+        InputManager.Instance.keyAction -= OnKeyUpdate;
+    }
 
 }
