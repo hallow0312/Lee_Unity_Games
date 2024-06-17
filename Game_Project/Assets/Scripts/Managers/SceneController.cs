@@ -7,22 +7,26 @@ using UnityEngine.UI;
 public class SceneController: SingleTon<SceneController>
 {
     [SerializeField] Image loadImage;
-
+    
     public IEnumerator FadeIn()
     {
+        loadImage.gameObject.SetActive(true);
         Color color = loadImage.color;
         color.a = 1;
         while(color.a>=0.0f)
         {
             color.a -= Time.deltaTime; 
             loadImage.color = color;
+            loadImage.gameObject.SetActive(false);
             yield return null;
         }
+        
     }
 
     public IEnumerator AsyncLoad(int index)
     {
         AsyncOperation asyncOperation= SceneManager.LoadSceneAsync(index);
+        loadImage.gameObject.SetActive(true);
 
         asyncOperation.allowSceneActivation = false;
 
@@ -38,6 +42,7 @@ public class SceneController: SingleTon<SceneController>
                 loadImage.color = color;
                 if(color.a>=1.0f)
                 {
+                    asyncOperation.allowSceneActivation = true;
                     yield break;
                 }
             }
