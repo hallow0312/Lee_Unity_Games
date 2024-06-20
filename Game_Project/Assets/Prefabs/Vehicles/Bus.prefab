@@ -530,13 +530,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7442052903963328821}
+  - component: {fileID: 2633232020729041063}
   m_Layer: 0
   m_Name: Bus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7442052903963328821
 Transform:
   m_ObjectHideFlags: 0
@@ -560,6 +561,20 @@ Transform:
   - {fileID: 5810625764428874066}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &2633232020729041063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618056290703300125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752a915c7c7e559438026dc7ee0085de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &4168109051626576555
 GameObject:
   m_ObjectHideFlags: 0
