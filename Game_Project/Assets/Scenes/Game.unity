@@ -641,6 +641,8 @@ MonoBehaviour:
   line: 0
   positionX: 3.5
   animator: {fileID: 0}
+  clip: {fileID: 8300000, guid: f703322c1ccf02b40a61fd0c2b36c6e9, type: 3}
+  soundManager: {fileID: 0}
 --- !u!95 &776287352
 Animator:
   serializedVersion: 5
