@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 6767722}
   - component: {fileID: 6767725}
   m_Layer: 0
-  m_Name: RoadRemoveCollider
+  m_Name: InteractZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,18 +469,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017875e09edc4cb4e9689e3ab668d9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  random: 0
+  randomPostion: 0
+  obstaclesList: []
   ObstaclePrefabs:
   - {fileID: 3483102975010335318, guid: c72b45ab1498a104b93f3efdbb6e330a, type: 3}
   - {fileID: 3618056290703300125, guid: 6bbc240b06751d9458046f75c73c48e5, type: 3}
   - {fileID: 7537485844341191978, guid: 0882244d9b8e9364ab4876166a34a9e8, type: 3}
   - {fileID: 509397054912307153, guid: 6c2dcd12b51b91b45ad89f2f58623aff, type: 3}
-  obstaclesList: []
-  random: 0
   activePositions:
   - {fileID: 1435179241}
   - {fileID: 682835256}
   - {fileID: 123034875}
-  randomPostion: 0
 --- !u!4 &665580264
 Transform:
   m_ObjectHideFlags: 0
@@ -740,10 +740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0c1ffd4ea5e9440a4e229b044fdca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: 0
-  positionX: 3.5
   animator: {fileID: 0}
   clip: {fileID: 8300000, guid: f703322c1ccf02b40a61fd0c2b36c6e9, type: 3}
+  line: 0
+  positionX: 3.5
+  speed: 20
 --- !u!95 &776287352
 Animator:
   serializedVersion: 5

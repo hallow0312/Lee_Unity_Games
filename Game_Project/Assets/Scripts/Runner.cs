@@ -11,11 +11,12 @@ using UnityEngine;
 };
 public class Runner : MonoBehaviour
 {   
-    [SerializeField] RoadLine line;
-    [SerializeField] float positionX = 3.5f;
     [SerializeField] Animator animator;
     [SerializeField] AudioClip clip;
    
+    [SerializeField] RoadLine line;
+    [SerializeField] float positionX = 3.5f;
+    [SerializeField] float speed = 20.0f;
 
     private void OnEnable()
     {
@@ -61,7 +62,13 @@ public class Runner : MonoBehaviour
 
     public void Move()
     {
-        transform.position = new Vector3(positionX *(float)line,0,0); 
+        transform.position = Vector3.Lerp
+        (
+            transform.position,
+            new Vector3(positionX * (float)line, 0, 0),
+            speed*Time.deltaTime
+
+        );
     
     }
 
