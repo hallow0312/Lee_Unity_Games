@@ -63,6 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2582680729739162220}
   - component: {fileID: 3344408681221867318}
+  - component: {fileID: -1787815843506413895}
   m_Layer: 0
   m_Name: Sedan
   m_TagString: Untagged
@@ -107,6 +108,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   direction: {x: 0, y: 0, z: 0}
+--- !u!65 &-1787815843506413895
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509397054912307153}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &996709877677652771
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,9 +15,11 @@ public class Runner : MonoBehaviour
     [SerializeField] AudioClip clip;
    
     [SerializeField] RoadLine line;
+    [SerializeField] RoadLine PreviousLine;
     [SerializeField] float positionX = 3.5f;
     [SerializeField] float speed = 20.0f;
 
+    
     private void OnEnable()
     {
         InputManager.Instance.keyAction += OnKeyUpdate;
@@ -26,16 +28,17 @@ public class Runner : MonoBehaviour
     {
        line = RoadLine.MIDDLE;
        transform.position=new Vector3(0,0,0);
+       PreviousLine = RoadLine.MIDDLE;
        animator= GetComponent<Animator>();
-      
-      
     }
+
     void OnKeyUpdate()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (line != RoadLine.LEFT)
             {
+                PreviousLine = line;
                 line--;
                 animator.Play("Left");
                 SoundManager.Instance.Sound(clip); 
@@ -45,11 +48,17 @@ public class Runner : MonoBehaviour
         {
             if (line != RoadLine.RIGHT)
             {
+                PreviousLine = line;
+
                 animator.Play("Right");
                 line++;
                 SoundManager.Instance.Sound(clip); 
             }
         }
+    }
+    public void RevertPosition()
+    {
+        line = PreviousLine;
     }
     private void Update()
     {
@@ -62,6 +71,7 @@ public class Runner : MonoBehaviour
 
     public void Move()
     {
+        
         transform.position = Vector3.Lerp
         (
             transform.position,
@@ -71,6 +81,7 @@ public class Runner : MonoBehaviour
         );
     
     }
+   
 
     private void OnDisable()
     {

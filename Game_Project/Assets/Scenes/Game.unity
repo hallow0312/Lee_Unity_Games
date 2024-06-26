@@ -151,24 +151,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6767721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155411ecf17b73e4ab29769c343aa770, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c306de3f0a26d14f93dba49217cfd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2073300573}
-        m_TargetAssemblyTypeName: RoadManager, Assembly-CSharp
-        m_MethodName: NewPosition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!65 &6767723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -743,6 +728,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   clip: {fileID: 8300000, guid: f703322c1ccf02b40a61fd0c2b36c6e9, type: 3}
   line: 0
+  PreviousLine: 0
   positionX: 3.5
   speed: 20
 --- !u!95 &776287352
@@ -967,12 +953,66 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64ee7e10dfa87f94a890874ed0884bef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 776287352}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64ee7e10dfa87f94a890874ed0884bef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1071266733}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64ee7e10dfa87f94a890874ed0884bef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1071266732}
   m_SourcePrefab: {fileID: 100100000, guid: 64ee7e10dfa87f94a890874ed0884bef, type: 3}
 --- !u!4 &1071266731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 64ee7e10dfa87f94a890874ed0884bef, type: 3}
   m_PrefabInstance: {fileID: 1071266730}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1071266732
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776287348}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1071266733
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776287348}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4, y: 1, z: 1}
+  m_Center: {x: 0.05, y: 1, z: 0}
 --- !u!1 &1360136157
 GameObject:
   m_ObjectHideFlags: 3
@@ -1300,6 +1340,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7029617034782549785, guid: 8c853ea204319b04298c49e4395d6818, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1728246711257775932}
+    - targetCorrespondingSourceObject: {fileID: 7029617034782549785, guid: 8c853ea204319b04298c49e4395d6818, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1728246711257775933}
   m_SourcePrefab: {fileID: 100100000, guid: 8c853ea204319b04298c49e4395d6818, type: 3}
 --- !u!1 &1728246711257775930 stripped
 GameObject:
@@ -1332,6 +1375,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 50, y: 0, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1728246711257775933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728246711257775930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05ba64bd52c2084297ed3f9e5669dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2073300573}
+        m_TargetAssemblyTypeName: RoadManager, Assembly-CSharp
+        m_MethodName: NewPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2500367107255876943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1395,6 +1465,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2044924224100587042, guid: 16ddfec599631bf43b0bf7188f7f89b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2500367107255876946}
+    - targetCorrespondingSourceObject: {fileID: 2044924224100587042, guid: 16ddfec599631bf43b0bf7188f7f89b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2500367107255876947}
   m_SourcePrefab: {fileID: 100100000, guid: 16ddfec599631bf43b0bf7188f7f89b1, type: 3}
 --- !u!1 &2500367107255876944 stripped
 GameObject:
@@ -1427,6 +1500,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 50, y: 0, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2500367107255876947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2500367107255876944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05ba64bd52c2084297ed3f9e5669dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2073300573}
+        m_TargetAssemblyTypeName: RoadManager, Assembly-CSharp
+        m_MethodName: NewPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3756046891933589395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1478,6 +1578,26 @@ PrefabInstance:
     - target: {fileID: 1250628062089142247, guid: c6043f268b996e54b9e657973dd18980, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860681957689409797, guid: c6043f268b996e54b9e657973dd18980, type: 3}
+      propertyPath: callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860681957689409797, guid: c6043f268b996e54b9e657973dd18980, type: 3}
+      propertyPath: callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2073300573}
+    - target: {fileID: 1860681957689409797, guid: c6043f268b996e54b9e657973dd18980, type: 3}
+      propertyPath: callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NewPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860681957689409797, guid: c6043f268b996e54b9e657973dd18980, type: 3}
+      propertyPath: callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RoadManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860681957689409797, guid: c6043f268b996e54b9e657973dd18980, type: 3}
+      propertyPath: callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1938864910472125734, guid: c6043f268b996e54b9e657973dd18980, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1593,6 +1713,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8910566188814794076, guid: 727a3ea7bd67f6a4da5248e955364cef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5841703305101740700}
+    - targetCorrespondingSourceObject: {fileID: 8910566188814794076, guid: 727a3ea7bd67f6a4da5248e955364cef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5841703305101740701}
   m_SourcePrefab: {fileID: 100100000, guid: 727a3ea7bd67f6a4da5248e955364cef, type: 3}
 --- !u!1 &5841703305101740698 stripped
 GameObject:
@@ -1625,6 +1748,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 50, y: 0, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5841703305101740701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841703305101740698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05ba64bd52c2084297ed3f9e5669dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2073300573}
+        m_TargetAssemblyTypeName: RoadManager, Assembly-CSharp
+        m_MethodName: NewPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
