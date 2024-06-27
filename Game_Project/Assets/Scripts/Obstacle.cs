@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour,IInteractable
     }
     private void Update()
     {
-        
+        speed+=0.01f;
         transform.Translate(direction*speed*Time.deltaTime);
     }
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5100007901536312578}
   - component: {fileID: 2206628338711688802}
+  - component: {fileID: 1174214496318228501}
   m_Layer: 0
   m_Name: FrontDetecter
   m_TagString: Untagged
@@ -53,6 +54,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1174214496318228501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313026950163069129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d5d0ac8f191a4ba93ef2c58e9d8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509397054912307153
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +77,7 @@ GameObject:
   - component: {fileID: 2582680729739162220}
   - component: {fileID: 3344408681221867318}
   - component: {fileID: -1787815843506413895}
+  - component: {fileID: 1385180088814333369}
   m_Layer: 0
   m_Name: Sedan
   m_TagString: Untagged
@@ -127,8 +141,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 3, y: 3, z: 6.5}
+  m_Center: {x: 0, y: 1.3, z: 0}
+--- !u!54 &1385180088814333369
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509397054912307153}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!1 &996709877677652771
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3339790264796031298}
   - component: {fileID: 7203097377660539188}
+  - component: {fileID: 6453937604726391489}
   m_Layer: 0
   m_Name: MiddleDetecter
   m_TagString: Untagged
@@ -263,8 +305,20 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2.5, z: 5.5}
-  m_Center: {x: 0, y: 0, z: -0.125}
+  m_Size: {x: 3, y: 2.5, z: 4}
+  m_Center: {x: 0, y: 0, z: -0.8}
+--- !u!114 &6453937604726391489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801372513587049745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738bba5be275bcf46854bdd6554923ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2498728508272481477
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4989252781417382874}
   - component: {fileID: 3367642558122542905}
+  - component: {fileID: 4488257057744212107}
   m_Layer: 0
   m_Name: BackDetecter
   m_TagString: Untagged
@@ -478,12 +533,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2.5, z: 1.25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3, y: 2.5, z: 2}
+  m_Center: {x: 0, y: 0, z: -0.8}
+--- !u!114 &4488257057744212107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534980620220333037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbd10ab9911632419e32d199e5e9ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7050299131961132675
 GameObject:
   m_ObjectHideFlags: 0

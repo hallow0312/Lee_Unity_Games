@@ -30,9 +30,9 @@ public class ObstacleManager : MonoBehaviour
        for(int i =0; i<ObstaclePrefabs.Length; i++)
         {
             GameObject obstacle = Instantiate(ObstaclePrefabs[i]);
+            ObstaclePrefabs[i].SetActive(false);
             obstaclesList.Add(obstacle);
 
-            ObstaclePrefabs[i].SetActive(false);
         }
         
         
@@ -42,7 +42,7 @@ public class ObstacleManager : MonoBehaviour
     IEnumerator ActiveObstacle()
     {
       
-        WaitForSeconds waitForSeconds = new WaitForSeconds(5.0f);
+        WaitForSeconds waitForSeconds = new WaitForSeconds(3.0f);
         while(true)
         {
             random= Random.Range(0,obstaclesList.Count);

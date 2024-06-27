@@ -81,11 +81,23 @@ public class Runner : MonoBehaviour
         );
     
     }
-   
+    
 
     private void OnDisable()
     {
         InputManager.Instance.keyAction -= OnKeyUpdate;
     }
 
+    public void DieScene()
+    {
+        animator.Play("Die");
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+       IHitable hitable =other.GetComponent<IHitable>();
+       if(hitable != null )
+        {
+            hitable.Activate(this);
+        }
+    }
 }
