@@ -9,6 +9,7 @@ using UnityEngine;
     MIDDLE=0,
     RIGHT=1
 };
+[RequireComponent(typeof(Rigidbody))]
 public class Runner : MonoBehaviour
 {   
     [SerializeField] Animator animator;
@@ -19,13 +20,15 @@ public class Runner : MonoBehaviour
     [SerializeField] float positionX = 3.5f;
     [SerializeField] float speed = 20.0f;
 
-    
+    Rigidbody rigidBody;
     private void OnEnable()
     {
         InputManager.Instance.keyAction += OnKeyUpdate;
     }
     private void Start()
     {
+       rigidBody=GetComponent<Rigidbody>();
+        rigidBody.useGravity = false;
        line = RoadLine.MIDDLE;
        transform.position=new Vector3(0,0,0);
        PreviousLine = RoadLine.MIDDLE;

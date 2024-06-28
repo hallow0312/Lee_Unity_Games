@@ -41,8 +41,9 @@ public class ObstacleManager : MonoBehaviour
 
     IEnumerator ActiveObstacle()
     {
+        
       
-        WaitForSeconds waitForSeconds = new WaitForSeconds(3.0f);
+        
         while(true)
         {
             random= Random.Range(0,obstaclesList.Count);
@@ -63,7 +64,7 @@ public class ObstacleManager : MonoBehaviour
             obstaclesList[random].transform.position = activePositions[randomPostion].position;
             obstaclesList[random].SetActive(true);
 
-            yield return waitForSeconds;
+            yield return CoroutineCache.waitForSeconds(5.0f);
         }       
     }
             
