@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour,IInteractable
+public class Obstacle : State,IInteractable
 {
     [SerializeField] float speed = 5.0f;
     [SerializeField] Vector3 direction;
@@ -14,19 +14,21 @@ public class Obstacle : MonoBehaviour,IInteractable
     }
 
     private void OnEnable()
-    {
+    {   
+        base.OnEnable();
         direction = Vector3.forward;
     }
     private void Update()
     {
+        if(state==false)
+        {
+            return;
+        }
         speed+=0.01f;
         transform.Translate(direction*speed*Time.deltaTime);
     }
 
-    private void OnDisable()
-    {
-        
-    }
+   
     public void Interact()
     {
         gameObject.SetActive(false);

@@ -4,7 +4,7 @@ using System.Threading;
 using UnityEditor;
 using UnityEngine;
 
-public class ObstacleManager : MonoBehaviour
+public class ObstacleManager : State
 {
     [SerializeField] int random;
     [SerializeField] int randomPostion;
@@ -41,10 +41,9 @@ public class ObstacleManager : MonoBehaviour
 
     IEnumerator ActiveObstacle()
     {
-        
-      
-        
-        while(true)
+    
+
+        while (true)
         {
             random= Random.Range(0,obstaclesList.Count);
             randomPostion = Random.Range(0, activePositions.Length);

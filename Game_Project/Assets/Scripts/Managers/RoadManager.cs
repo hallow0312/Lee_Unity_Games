@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class RoadManager : MonoBehaviour
+public class RoadManager :State
 {
     [SerializeField] List<GameObject> roads;
     [SerializeField] float offset = 20.0f;
@@ -19,6 +19,10 @@ public class RoadManager : MonoBehaviour
     }
     private void Update()
     {
+        if (state == false)
+        {
+            return;
+        }
         MoveRoad();
        
     }

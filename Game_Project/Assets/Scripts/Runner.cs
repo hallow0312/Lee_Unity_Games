@@ -10,20 +10,23 @@ using UnityEngine;
     RIGHT=1
 };
 [RequireComponent(typeof(Rigidbody))]
-public class Runner : MonoBehaviour
+public class Runner:State
 {   
     [SerializeField] Animator animator;
     [SerializeField] AudioClip clip;
    
     [SerializeField] RoadLine line;
     [SerializeField] RoadLine PreviousLine;
+    
     [SerializeField] float positionX = 3.5f;
     [SerializeField] float speed = 20.0f;
 
     Rigidbody rigidBody;
     private void OnEnable()
     {
+        base.OnEnable();
         InputManager.Instance.keyAction += OnKeyUpdate;
+
     }
     private void Start()
     {
@@ -34,9 +37,13 @@ public class Runner : MonoBehaviour
        PreviousLine = RoadLine.MIDDLE;
        animator= GetComponent<Animator>();
     }
-
+   
     void OnKeyUpdate()
-    {
+    {   
+        if(state==false)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (line != RoadLine.LEFT)
@@ -74,7 +81,10 @@ public class Runner : MonoBehaviour
 
     public void Move()
     {
-        
+        if (state == false)
+        {
+            return;
+        }
         transform.position = Vector3.Lerp
         (
             transform.position,
@@ -88,7 +98,9 @@ public class Runner : MonoBehaviour
 
     private void OnDisable()
     {
+        base.OnDisable();
         InputManager.Instance.keyAction -= OnKeyUpdate;
+
     }
 
     public void DieScene()
