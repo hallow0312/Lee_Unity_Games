@@ -43,7 +43,7 @@ public class ObstacleManager : State
     {
     
 
-        while (true)
+        while (state==true)
         {
             random= Random.Range(0,obstaclesList.Count);
             randomPostion = Random.Range(0, activePositions.Length);

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Obstacle : State,IInteractable
 {
-    [SerializeField] float speed = 5.0f;
     [SerializeField] Vector3 direction;
+    [SerializeField] float speed;
     public float Speed
     {
         get { return speed; }
         set { speed = value; }
-        
     }
 
     private void OnEnable()
     {   
         base.OnEnable();
+        speed=Random.Range(SpeedManager.Speed,SpeedManager.Speed+5.0f);
         direction = Vector3.forward;
     }
     private void Update()
@@ -24,14 +24,11 @@ public class Obstacle : State,IInteractable
         {
             return;
         }
-        speed+=0.01f;
+        
         transform.Translate(direction*speed*Time.deltaTime);
     }
-
-   
     public void Interact()
     {
         gameObject.SetActive(false);
     }
-
 }

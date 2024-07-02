@@ -26,18 +26,21 @@ public class Runner:State
     {
         base.OnEnable();
         InputManager.Instance.keyAction += OnKeyUpdate;
-
+        
     }
     private void Start()
     {
-       rigidBody=GetComponent<Rigidbody>();
-        rigidBody.useGravity = false;
+        Component();
        line = RoadLine.MIDDLE;
        transform.position=new Vector3(0,0,0);
        PreviousLine = RoadLine.MIDDLE;
        animator= GetComponent<Animator>();
     }
-   
+    void Component()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+        rigidBody.useGravity = false;
+    }
     void OnKeyUpdate()
     {   
         if(state==false)
@@ -72,9 +75,12 @@ public class Runner:State
     }
     private void Update()
     {
-        
        Move();
        
+    }
+    public void Initialize()
+    {
+        animator.speed = SpeedManager.Speed / 20.0f;
     }
     
     

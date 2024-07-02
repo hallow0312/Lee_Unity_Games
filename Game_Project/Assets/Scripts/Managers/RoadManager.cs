@@ -7,14 +7,15 @@ using UnityEngine.EventSystems;
 
 public class RoadManager :State
 {
+    [SerializeField] float speed;
     [SerializeField] List<GameObject> roads;
     [SerializeField] float offset = 20.0f;
-    private float roadSpeed = 3.0f;
-    
+ 
  
     private void Start()
     {
-        roads.Capacity = 10;
+        Initialize();
+        speed = SpeedManager.Speed / 2;
        
     }
     private void Update()
@@ -23,19 +24,21 @@ public class RoadManager :State
         {
             return;
         }
+       
         MoveRoad();
        
     }
-
+    public void Initialize()
+    {
+        speed = SpeedManager.Speed / 2;
+    }
+    
     private void MoveRoad()
     {   
-       
-        roadSpeed += 0.001f;
         for (int i = 0; i < roads.Count; i++)
         {
-            roads[i].transform.Translate(Vector3.back*roadSpeed*Time.deltaTime);
+            roads[i].transform.Translate(Vector3.back*speed*Time.deltaTime);
         }
-
     }
     public void NewPosition()
     {
