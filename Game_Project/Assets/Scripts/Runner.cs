@@ -28,7 +28,7 @@ public class Runner:State
         InputManager.Instance.keyAction += OnKeyUpdate;
         
     }
-    private void Start()
+    private void Awake() //start보다 먼저 호출됨.
     {
         Component();
        line = RoadLine.MIDDLE;
@@ -80,7 +80,7 @@ public class Runner:State
     }
     public void Initialize()
     {
-        animator.speed = SpeedManager.Speed / 20.0f;
+        animator.speed = SpeedManager.Speed / 25.0f;
     }
     
     
@@ -111,6 +111,7 @@ public class Runner:State
 
     public void DieScene()
     {
+       
         animator.Play("Die");
     }
     private void OnTriggerEnter(Collider other)

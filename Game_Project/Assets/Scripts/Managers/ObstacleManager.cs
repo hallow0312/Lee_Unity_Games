@@ -45,6 +45,7 @@ public class ObstacleManager : State
 
         while (state==true)
         {
+            yield return CoroutineCache.waitForSeconds(2.5f);
             random= Random.Range(0,obstaclesList.Count);
             randomPostion = Random.Range(0, activePositions.Length);
 
@@ -63,7 +64,6 @@ public class ObstacleManager : State
             obstaclesList[random].transform.position = activePositions[randomPostion].position;
             obstaclesList[random].SetActive(true);
 
-            yield return CoroutineCache.waitForSeconds(5.0f);
         }       
     }
             

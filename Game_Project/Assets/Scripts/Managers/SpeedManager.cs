@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SpeedManager : MonoBehaviour
+public class SpeedManager :State
 {
     [SerializeField] static float speed;
     [SerializeField] float Maxspeed=60.0f;
@@ -23,13 +23,13 @@ public class SpeedManager : MonoBehaviour
 
     IEnumerator IncreaseSpeed()
     {
-       while(speed < Maxspeed) 
+       while(speed < Maxspeed && state==true) 
         {
-            yield return CoroutineCache.waitForSeconds(2.5f);
             if(callback!=null)
             {
                 callback.Invoke();
             }
+            yield return CoroutineCache.waitForSeconds(2.5f);
             speed++;
         }
       
