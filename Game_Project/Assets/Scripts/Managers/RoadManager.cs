@@ -4,18 +4,20 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class RoadManager :State
 {
     [SerializeField] float speed;
     [SerializeField] List<GameObject> roads;
     [SerializeField] float offset = 20.0f;
- 
- 
+
+  
+
     private void Start()
     {
         Initialize();
-        speed = SpeedManager.Speed / 2;
+        speed = SpeedManager.Speed/2;
        
     }
     private void Update()
@@ -52,6 +54,7 @@ public class RoadManager :State
         roads.Add(newRoad);
         
     }
+   
 }
-    
+
 

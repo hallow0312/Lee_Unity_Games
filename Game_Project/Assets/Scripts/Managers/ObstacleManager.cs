@@ -1,18 +1,17 @@
+
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using UnityEditor;
 using UnityEngine;
 
 public class ObstacleManager : State
 {
     [SerializeField] int random;
-    [SerializeField] int randomPostion;
+
     
     [SerializeField] List<GameObject> obstaclesList;
-
+    
     [SerializeField] GameObject[] ObstaclePrefabs;
-    [SerializeField] Transform[] activePositions;
+    [SerializeField] Transform activePositions;
     
     void Start()
     {
@@ -46,24 +45,25 @@ public class ObstacleManager : State
         while (state==true)
         {
             yield return CoroutineCache.waitForSeconds(2.5f);
-            random= Random.Range(0,obstaclesList.Count);
-            randomPostion = Random.Range(0, activePositions.Length);
 
-            while (obstaclesList[random].activeSelf==true)
+            if (Random.value > 0.5f)
             {
-                if(ExamineActive()==true)
+                random = Random.Range(0, obstaclesList.Count);
+                while (obstaclesList[random].activeSelf == true)
                 {
-                    GameObject obstacle = Instantiate (ObstaclePrefabs[Random.Range(0,ObstaclePrefabs.Length)]);
-                    obstacle.SetActive(false);
-                    obstaclesList.Add(obstacle);
-              
+                    if (ExamineActive() == true)
+                    {
+                        GameObject obstacle = Instantiate(ObstaclePrefabs[Random.Range(0, ObstaclePrefabs.Length)]);
+                        obstacle.SetActive(false);
+                        obstaclesList.Add(obstacle);
+
+                    }
+                    random = (random + 1) % obstaclesList.Count;
                 }
-                random = (random + 1) % obstaclesList.Count;
+
+                obstaclesList[random].transform.position = activePositions.position;
+                obstaclesList[random].SetActive(true);
             }
-
-            obstaclesList[random].transform.position = activePositions[randomPostion].position;
-            obstaclesList[random].SetActive(true);
-
         }       
     }
             
