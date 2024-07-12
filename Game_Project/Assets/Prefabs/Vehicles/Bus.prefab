@@ -529,7 +529,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
@@ -601,8 +601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a915c7c7e559438026dc7ee0085de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  state: 1
   direction: {x: 0, y: 0, z: 0}
+  speed: 5
 --- !u!65 &-1922041774684775260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -622,7 +623,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.5, y: 4, z: 9}
+  m_Size: {x: 3.5, y: 4, z: 8}
   m_Center: {x: 0, y: 1.85, z: 0}
 --- !u!54 &7416071296314075210
 Rigidbody:

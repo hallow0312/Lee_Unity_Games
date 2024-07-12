@@ -11,17 +11,19 @@ using UnityEngine;
 };
 [RequireComponent(typeof(Rigidbody))]
 public class Runner:State
-{   
+{
+    
     [SerializeField] Animator animator;
     [SerializeField] AudioClip clip;
-   
+    [SerializeField] Rigidbody rigidBody;
+    
     [SerializeField] RoadLine line;
     [SerializeField] RoadLine PreviousLine;
     
+    [SerializeField] bool IsJumping = false;
     [SerializeField] float positionX = 3.5f;
     [SerializeField] float speed = 20.0f;
-
-    Rigidbody rigidBody;
+    [SerializeField] float jumpPower = 10.0f;
     private void OnEnable()
     {
         base.OnEnable();
@@ -39,7 +41,6 @@ public class Runner:State
     void Component()
     {
         rigidBody = GetComponent<Rigidbody>();
-        rigidBody.useGravity = false;
     }
     void OnKeyUpdate()
     {   
@@ -68,7 +69,16 @@ public class Runner:State
                 SoundManager.Instance.Sound(clip); 
             }
         }
+        else if(!IsJumping&&Input.GetKeyDown(KeyCode.Space))
+        {
+         
+          animator.Play("Jump");
+          Jump();
+          SoundManager.Instance.Sound(clip);
+         
+        }
     }
+    
     public void RevertPosition()
     {
         line = PreviousLine;
@@ -78,12 +88,18 @@ public class Runner:State
        Move();
        
     }
+   
     public void Initialize()
     {
-        animator.speed = SpeedManager.Speed / 25.0f;
+        animator.speed = 0.5f+SpeedManager.Speed / 25.0f;
     }
     
-    
+    public void Jump()
+    {
+       IsJumping = true;  
+       
+       rigidBody.AddForce(Vector3.up * jumpPower,ForceMode.Impulse);
+    }
 
     public void Move()
     {
@@ -91,10 +107,10 @@ public class Runner:State
         {
             return;
         }
-        transform.position = Vector3.Lerp
+        rigidBody.position = Vector3.Lerp
         (
-            transform.position,
-            new Vector3(positionX * (float)line, 0, 0),
+            rigidBody.position,
+            new Vector3(positionX * (float)line, rigidBody.position.y, 0),
             speed*Time.deltaTime
 
         );
@@ -120,6 +136,14 @@ public class Runner:State
        if(hitable != null )
         {
             hitable.Activate(this);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Road"))
+        {
+            IsJumping = false;
+            animator.SetTrigger("Active");
         }
     }
 }
